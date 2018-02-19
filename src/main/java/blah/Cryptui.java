@@ -8,7 +8,6 @@ import java.util.Map;
 
 import com.sun.jna.Native;
 import com.sun.jna.PointerType;
-import com.sun.jna.platform.win32.WinDef.HWND;
 import com.sun.jna.platform.win32.WinNT.HANDLE;
 import com.sun.jna.win32.StdCallLibrary;
 import com.sun.jna.win32.W32APIFunctionMapper;
@@ -27,7 +26,7 @@ public interface Cryptui extends StdCallLibrary {
     /**
      *  https://msdn.microsoft.com/en-us/library/windows/desktop/aa380288(v=vs.85).aspx
      */
-    CERT_CONTEXT.ByReference CryptUIDlgSelectCertificateFromStore(HANDLE hCertStore, int hwnd, String title,
+    CERT_CONTEXT CryptUIDlgSelectCertificateFromStore(HANDLE hCertStore, int hwnd, String title,
             String displayName, int dontUseColumn, int flags, PointerType reserved);
 
     public interface Options {
